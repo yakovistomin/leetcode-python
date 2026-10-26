@@ -1,6 +1,6 @@
 import pytest
 
-from leetcode_problems.problem_1_two_sum import Solution
+from solutions.p0001_two_sum import Solution
 
 
 @pytest.mark.parametrize(

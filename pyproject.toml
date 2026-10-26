@@ -1,5 +1,5 @@
 [project]
-name = "python-leetcode"
+name = "leetcode-python"
 version = "0.1.0"
 description = "Leetcode problem solutions"
 readme = "README.md"
@@ -8,11 +8,7 @@ requires-python = ">=3.15"
 dependencies = []
 
 [dependency-groups]
-dev = [
-    "mypy>=2.4.0",
-    "pytest>=9.1.1",
-    "ruff>=0.17.2",
-]
+dev = ["mypy>=2.4.0", "pre-commit>=4.7.0", "pytest>=9.1.1", "ruff>=0.17.2"]
 
 [tool.uv]
 package = false
@@ -20,23 +16,24 @@ package = false
 [tool.ruff]
 line-length = 120
 target-version = "py315"
-src = [".", "leetcode"]
+src = [".", "solutions"]
 
 [tool.ruff.lint]
 select = ["ALL"]
-ignore = ["ARG001", "CPY001", "COM812", "D1", "E501", "N802", "TRY003", "EM101"]
+ignore = ["CPY001", "D1", "EM101", "TRY003"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
 [tool.ruff.lint.per-file-ignores]
-"**/tests/**" = ["S101", "PLR2004", "S101"]
+"solutions/**" = ["N802"]
+"tests/**" = ["S101", "PLR2004", "S101"]
 
 [tool.ruff.lint.isort]
 combine-as-imports = true
 force-single-line = false
 lines-after-imports = 2
-known-first-party = ["leetcode"]
+known-first-party = ["solutions"]
 
 [tool.ruff.format]
 quote-style = "single"
@@ -59,6 +56,3 @@ disallow_untyped_defs = false
 [tool.pytest]
 testpaths = ["tests"]
 addopts = ["--strict-markers", "--strict-config", "-ra"]
-asyncio_mode = "auto"
-asyncio_default_fixture_loop_scope = "session"
-asyncio_default_test_loop_scope = "session"
