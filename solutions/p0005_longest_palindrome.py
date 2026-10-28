@@ -1,4 +1,4 @@
-class Solution:
+class ExpandFromCenterSolution:
     def longestPalindrome(self, s: str) -> str:
         n = len(s)
         result = (0, 1)
@@ -20,7 +20,9 @@ class Solution:
 
         return s[result[0] : result[1]]
 
-    def longestPalindromeDP(self, s: str) -> str:
+
+class DynamicProgrammingSolution:
+    def longestPalindrome(self, s: str) -> str:
         n = len(s)
         dp: list[list[int]] = [[False] * n for _ in range(n)]
         result = (0, 0)
@@ -36,3 +38,6 @@ class Solution:
                     result = (i, j)
 
         return s[result[0] : result[1] + 1]
+
+
+Solution = ExpandFromCenterSolution
