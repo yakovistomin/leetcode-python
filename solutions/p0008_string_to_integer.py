@@ -11,20 +11,19 @@ SYMBOL_MAP = {symbol: idx for idx, symbol in enumerate(string.digits)}
 
 class Solution:
     def myAtoi(self, s: str) -> int:
-        s = s.lstrip(' ')
+        idx = 0
+        while idx < len(s) and s[idx] == ' ':
+            idx += 1
 
         sign = 1
-        start = 0
-        if s and s[0] in '-+':
-            sign = -1 if s[0] == '-' else 1
-            start = 1
+        if idx < len(s) and s[idx] in '-+':
+            sign = -1 if s[idx] == '-' else 1
+            idx += 1
 
         result = 0
-        for symbol in s[start:]:
-            if symbol not in SYMBOL_MAP:
-                break
 
-            digit = SYMBOL_MAP[symbol]
+        while idx < len(s) and s[idx] in SYMBOL_MAP:
+            digit = SYMBOL_MAP[s[idx]]
 
             if result > MAX_INT_DIV_10 or (result == MAX_INT_DIV_10 and digit > MAX_LAST_DIGIT):
                 return INT_MAX
@@ -32,5 +31,7 @@ class Solution:
                 return INT_MIN
 
             result = result * 10 + digit * sign
+
+            idx += 1
 
         return result
