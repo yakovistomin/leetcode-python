@@ -34,7 +34,7 @@ convention = "google"
 
 [tool.ruff.lint.per-file-ignores]
 "solutions/**" = ["N802"]
-"tests/**" = ["N802", "S101", "PLR2004", "S101"]
+"tests/**" = ["N802", "S101", "PLR2004", "S101", "FBT001"]
 
 [tool.ruff.lint.isort]
 combine-as-imports = true
