@@ -10,6 +10,7 @@ dependencies = []
 [dependency-groups]
 dev = [
     "hypothesis>=6.170.11",
+    "ipdb>=0.13.13",
     "ipython>=9.17.1",
     "mypy>=2.4.0",
     "pre-commit>=4.7.0",
