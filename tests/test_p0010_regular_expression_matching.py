@@ -46,6 +46,7 @@ def matching_cases(draw: st.DrawFn) -> tuple[str, str]:
         ('aaa', 'a*a', True),
         ('a', 'ab*', True),
         ('a', 'a*b*', True),
+        ('a', 'aa', False),
     ],
 )
 def test_is_matched(value: str, expr: str, expected: bool) -> None:
