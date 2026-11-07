@@ -20,6 +20,7 @@ dev = [
 
 [tool.uv]
 package = false
+required-version = ">=0.13.7"
 
 [tool.ruff]
 line-length = 120
